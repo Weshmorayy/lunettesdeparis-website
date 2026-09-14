@@ -1,24 +1,35 @@
-import React from 'react';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import Hero from '@/components/sections/Hero';
-import MorphoGuide from '@/components/sections/MorphoGuide';
+import BrandMarquee from '@/components/sections/BrandMarquee';
 import Catalogue from '@/components/sections/Catalogue';
+import EditorialSplit from '@/components/sections/EditorialSplit';
+import MorphoGuide from '@/components/sections/MorphoGuide';
 import Services from '@/components/sections/Services';
-import EyeHealth from '@/components/sections/EyeHealth';
+import Assurances from '@/components/sections/Assurances';
 import BilanBooking from '@/components/sections/BilanBooking';
 import Stores from '@/components/sections/Stores';
 import Testimonials from '@/components/sections/Testimonials';
+import EyeHealth from '@/components/sections/EyeHealth';
+import SchemaOrg from '@/components/seo/SchemaOrg';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
+    <main>
+      <SchemaOrg />
+      <Header />
       <Hero />
-      <MorphoGuide />
+      <BrandMarquee />
       <Catalogue />
+      <EditorialSplit />
+      <MorphoGuide />
       <Services />
-      <EyeHealth />
+      <Assurances />
       <BilanBooking />
       <Stores />
       <Testimonials />
-    </div>
+      <EyeHealth />
+      <Footer />
+    </main>
   );
 }

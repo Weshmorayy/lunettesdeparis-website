@@ -2,35 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --color-paris-navy: 10 25 49;
-    --color-paris-red: 217 4 41;
-    --color-paris-yellow: 255 183 3;
-    --background: 248 250 252;
-    --foreground: 15 23 42;
-  }
-
-  body {
-    @apply bg-[#F8FAFC] text-[#0A1931] antialiased selection:bg-[#D90429] selection:text-white;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  }
+:root {
+  --navy: #0A1931;
+  --red: #D90429;
+  --yellow: #FFB703;
+  --white: #FFFFFF;
+  --gray-light: #F5F5F3;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .glass-card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-  }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-  .glass-navy {
-    background: rgba(10, 25, 49, 0.92);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #0A1931;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
 }
+
+.font-serif {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+.input-underline {
+  border: none;
+  border-bottom: 1px solid #d1d5db;
+  background: transparent;
+  padding: 12px 0;
+  width: 100%;
+  outline: none;
+  font-size: 15px;
+  color: #0A1931;
+  transition: border-color 0.2s;
+}
+.input-underline:focus { border-bottom-color: #0A1931; }
+.input-underline::placeholder { color: #9ca3af; }

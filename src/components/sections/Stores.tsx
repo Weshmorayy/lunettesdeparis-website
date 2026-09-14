@@ -1,111 +1,58 @@
-import React from 'react';
-import { 
-  MapPin, 
-  Phone, 
-  Clock, 
-  Navigation, 
-  MessageCircle, 
-  Calendar,
-  Building2,
-  ShieldCheck
-} from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export default function Stores() {
   return (
-    <section id="boutiques" className="py-20 bg-[#071224] text-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-[#1565C0]/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#D90429]/15 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="centres" className="py-24 px-6 md:px-16 bg-white">
+      {/* Header */}
+      <div className="mb-16">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-3">Où nous trouver</p>
+        <h2 className="font-serif text-[#0A1931] text-4xl md:text-5xl max-w-md leading-tight">
+          Deux centres à Abidjan
+        </h2>
+        <div className="w-12 h-[2px] bg-[#D90429] mt-5" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#FFB703] border border-white/10 text-xs font-bold uppercase tracking-wider mb-4">
-            <Building2 className="w-4 h-4" />
-            2 Centres d'Excellence à Abidjan
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-            Venez nous rendre visite au <span className="text-[#FFB703]">Plateau</span> ou à <span className="text-[#D90429]">Marcory</span>
-          </h2>
-          <p className="text-white/70 text-base leading-relaxed">
-            Nos showrooms modernes vous accueillent dans un cadre chaleureux et climatisé avec plus de 500 montures en démonstration et un espace réfraction équipé.
-          </p>
-        </div>
-
-        {/* 2 Showrooms Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {siteConfig.stores.map((store) => (
-            <div 
-              key={store.id}
-              className="p-8 sm:p-10 rounded-3xl bg-[#0A1931] border border-white/15 shadow-2xl flex flex-col justify-between relative overflow-hidden group hover:border-[#FFB703]/50 transition-all duration-300"
-            >
-              <div className="space-y-6">
-                
-                <div className="flex items-center justify-between">
-                  <span className="px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-[#FFB703] text-[#0A1931]">
-                    {store.district}
-                  </span>
-                  <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Ouvert
-                  </div>
-                </div>
-
-                <h3 className="text-2xl font-bold text-white group-hover:text-[#FFB703] transition-colors">
-                  {store.name}
-                </h3>
-
-                <div className="space-y-4 text-sm text-white/80">
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-5 h-5 text-[#D90429] flex-shrink-0 mt-0.5" />
-                    <span>{store.address}</span>
-                  </div>
-
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-[#FFB703] flex-shrink-0" />
-                    <a href={`tel:${store.phone}`} className="hover:text-white font-bold text-base text-white">
-                      {store.phone}
-                    </a>
-                  </div>
-
-                  <div className="flex items-start gap-3 text-xs text-white/70">
-                    <Clock className="w-5 h-5 text-white/40 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <div>{store.hoursWeek}</div>
-                      <div>{store.hoursSat}</div>
-                    </div>
-                  </div>
-                </div>
-
+      {/* Stores grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        {siteConfig.stores.map((store) => (
+          <div key={store.id} className="border-l-2 border-[#D90429] pl-8">
+            <p className="text-[9px] uppercase tracking-[0.3em] text-[#FFB703] font-bold mb-3">
+              {store.district}
+            </p>
+            <h3 className="font-serif text-[#0A1931] text-2xl md:text-3xl mb-6 leading-snug">
+              {store.name}
+            </h3>
+            <div className="space-y-3 mb-8">
+              <p className="text-gray-500 text-sm leading-relaxed">{store.address}</p>
+              <a
+                href={`tel:${store.phone.replace(/\s/g, '')}`}
+                className="text-[#D90429] font-bold text-xl block hover:text-[#0A1931] transition-colors"
+              >
+                {store.phone}
+              </a>
+              <div className="text-gray-400 text-xs space-y-1">
+                <p>{store.hoursWeek}</p>
+                <p>{store.hoursSat}</p>
               </div>
-
-              {/* Action Buttons */}
-              <div className="pt-8 mt-8 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <a 
-                  href={`https://wa.me/${store.whatsapp}?text=${encodeURIComponent(`Bonjour, je souhaite contacter le centre Lunettes de Paris ${store.name}.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 text-center py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>WhatsApp {store.district.split(',')[0]}</span>
-                </a>
-
-                <a 
-                  href="#bilan-rdv"
-                  className="flex-1 text-center py-3.5 rounded-xl bg-[#D90429] hover:bg-[#EF233C] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Prendre RDV</span>
-                </a>
-              </div>
-
             </div>
-          ))}
-        </div>
-
+            <div className="flex flex-col gap-3">
+              <a
+                href={`https://wa.me/${store.whatsapp}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[10px] uppercase tracking-[0.2em] text-[#0A1931] font-bold border-b border-[#0A1931] pb-0.5 w-fit hover:text-[#D90429] hover:border-[#D90429] transition-colors"
+              >
+                Contacter sur WhatsApp →
+              </a>
+              <a
+                href="#bilan"
+                className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold border-b border-gray-300 pb-0.5 w-fit hover:text-[#0A1931] hover:border-[#0A1931] transition-colors"
+              >
+                Prendre rendez-vous →
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
