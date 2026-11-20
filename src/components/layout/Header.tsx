@@ -117,8 +117,7 @@ export default function Header() {
             </a>
           </nav>
           <div className="px-6 pb-10">
-            <p className="text-white/40 text-xs">Plateau : +225 07 68 35 15 15</p>
-            <p className="text-white/40 text-xs mt-1">Marcory : +225 07 68 01 11 11</p>
+            <p className="text-white/40 text-xs">WhatsApp / Contact : +221 70 802 72 77</p>
           </div>
         </div>
       )}

@@ -58,13 +58,13 @@ export default function Footer() {
           <div className="space-y-4">
             <div>
               <p className="text-[9px] uppercase tracking-widest text-white/30 mb-1">Plateau</p>
-              <a href="tel:+2250768351515" className="text-white/60 text-sm hover:text-white transition-colors block">
+              <a href="tel:+221708027277" className="text-white/60 text-sm hover:text-white transition-colors block">
                 {siteConfig.contactPlateau}
               </a>
             </div>
             <div>
               <p className="text-[9px] uppercase tracking-widest text-white/30 mb-1">Marcory</p>
-              <a href="tel:+2250768011111" className="text-white/60 text-sm hover:text-white transition-colors block">
+              <a href="tel:+221708027277" className="text-white/60 text-sm hover:text-white transition-colors block">
                 {siteConfig.contactMarcory}
               </a>
             </div>
